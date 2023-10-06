@@ -45,7 +45,7 @@ roleRef:
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: fluentd-es-v2.7.0
+  name: fluentd-es
   namespace: efklog
   labels:
     k8s-app: fluentd-es
