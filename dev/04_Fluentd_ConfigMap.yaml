@@ -142,30 +142,6 @@ data:
       max_bytes 500000
       max_lines 1000
     </match>
-<match *>
-  @type s3
-
-  # AWS credentials
-  AWS_ACCESS_KEY_ID ASIAXEICFCS2J2CVMSKU
-  AWS_SECRET_ACCESS_KEY mLENXWUWFLCtlptUo3HjjhDvyi/MrwtPzdjzHHBV
-  AWS_SESSION_TOKEN IQoJb3JpZ2luX2VjEGsaCXVzLWVhc3QtMSJGMEQCIDphN5TdTeWeEb4CotDuvt91LK86yAUQaSCbCC7qxjZIAiABHNPWU5ja8RvLCJmxNK8lYkGEu+iZr3WQ/XYpDZe7oiqOAwh0EAMaDDQ5MDE2NzY2OTk0MCIMxnuq8u0xg2gNoh61KusCbg9UfvK+BvQBNaQ+yw9W8Pv2i97NXlO/Y5jy5wD4YI+bsb/i9UA2+KTsLBYfTOWCc8scipsR+4i8D9ayTkDwygBt0fylSkyj9C5IcTsWZxb2Pz27Q1jxmfEPL/Dp3kdPjZ7nRPP3xMF2Rr4rMoT63fL7O/WewPJcAG4iL6oU/vg5ogtsUHyk7krxYZlZEsEk6fKGuZlpO3i0w4j1XIc0Y64V7FZJz/HslC++9V7qDrMkqV3GER0AuBArO7YpEoAfSocofhGeCxJTDXJr0uqNq6kJH5N+4enTLkEeohuXgdbk8QzzqfdeQPh7BKdBu1cLGjs7/5quEYOiAaRDeOmvowwFHFzdoFa5odnCPQqqbPkBJ8p/PRl550UpZ2T4i3UdCOIX7MCVJroLDFw8CU8hvGsyBSVadIC9FSvELdDLIZB0dkRupvakGgTqSER3ldLRtPI/kzXXzUdVweTyG9aaM6PI9b4YI29HbOKaMKDK/6gGOqcBCOxzq9IPLujJW1V8BQhsTVCk0WR/r9Bx569rHV2uZz//7DtOjywMKqbeQJ7arRfUe3LB42v0N7MrKqybItePV7T22/cRFY2V4ygRawa0p7DU1UtAEUbrgQCSPuBn77/WkBnByY+eSeciONDKux+lm847vHMeC1KK5CCXU4R10E3YsLo/KyAb+Fx0SV7/j6LZQUdO72qIg3Z7p5sGOP7xD4sqGsUhChc=
-  aws_region  
-
-  # S3 bucket details
-  s3_bucket waseemspringboot
-  s3_object_key_format %{path}/%{time_slice}_0_%{index}.%{file_extension}
-
-  # Optional: Use the following if you want to compress logs before sending
-  <buffer>
-    @type file
-    path /var/log/fluent/s3
-    timekey 3600  # Rotate buffer files every hour
-    timekey_use_utc true
-    chunk_limit_size 256m
-  </buffer>
-</match>
-
-    
 
     # Concatenate multi-line logs
     <filter **>
