@@ -87,13 +87,23 @@ spec:
           name: transport
           protocol: TCP
         volumeMounts:
-        - name: elasticsearch-logging
+        - name: my-pv
           mountPath: /data
         env:
         - name: "NAMESPACE"
           valueFrom:
             fieldRef:
               fieldPath: metadata.namespace
+      volumeClaimTemplates:
+      - metadata:
+          name: my-pv
+       spec:
+          accessModes:
+            - ReadWriteOnce
+          storageClassName: ebs-sc
+          resources:
+            requests:
+              storage: 50Gi
       volumes:
       - name: elasticsearch-logging
         emptyDir: {}
